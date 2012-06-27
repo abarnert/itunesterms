@@ -1,0 +1,550 @@
+﻿
+
+Suite: Standard Suite [****] -- Common terms for most applications
+
+	Event: print [aevtpdoc] -- Print the specified object(s)
+		<obj > (optional) -- list of objects to print
+		print_dialog [pdlg] <bool> (optional) -- Should the application show the print dialog
+		with_properties [prdt] <pset> (optional) -- the print settings
+		kind [pKnd] <eKnd> (optional, enum) -- the kind of printout desired
+		theme [pThm] <utxt> (optional) -- name of theme to use for formatting the printout
+		Result: <null> (optional)
+
+	Event: close [coreclos] -- Close an object
+		<obj > -- the object to close
+		Result: <null> (optional)
+
+	Event: count [corecnte] -- Return the number of elements of a particular class within an object
+		<obj > -- the object whose elements are to be counted
+		each [kocl] <type> -- the class of the elements to be counted. Keyword 'each' is optional in AppleScript
+		Result: <long> -- the number of elements
+
+	Event: delete [coredelo] -- Delete an element from an object
+		<obj > -- the element to delete
+		Result: <null> (optional)
+
+	Event: duplicate [coreclon] -- Duplicate one or more object(s)
+		<obj > -- the object(s) to duplicate
+		to [insh] <insl> (optional) -- the new location for the object(s)
+		Result: <obj > -- to the duplicated object(s)
+
+	Event: exists [coredoex] -- Verify if an object exists
+		<obj > -- the object in question
+		Result: <bool> -- true if it exists, false if not
+
+	Event: make [corecrel] -- Make a new element
+		<null> (optional)
+		new [kocl] <type> -- the class of the new element. Keyword 'new' is optional in AppleScript
+		at [insh] <insl> (optional) -- the location at which to insert the element
+		with_properties [prdt] <reco> (optional) -- the initial values for the properties of the element
+		Result: <obj > -- to the new object(s)
+
+	Event: move [coremove] -- Move playlist(s) to a new location
+		<cPly> -- the playlist(s) to move
+		to [insh] <insl> -- the new location for the playlist(s)
+		Result: <null> -- to the playlist(s) after they have been moved
+
+	Event: open [aevtodoc] -- open the specified object(s)
+		<obj > -- list of objects to open
+		Result: <null> (optional)
+
+	Event: run [aevtoapp] -- run iTunes
+		<null> (optional) -- no direct parameter required
+		Result: <null> (optional)
+
+	Event: quit [aevtquit] -- quit iTunes
+		<null> (optional)
+		Result: <null> (optional)
+
+	Event: set [coresetd] -- 
+		<obj >
+		to [data] <****>
+		Result: <null> (optional)
+
+
+	Class: print_settings [pset]
+		copies [lwcp] <long> (r/o) -- the number of copies of a document to be printed
+		collating [lwcl] <bool> (r/o) -- Should printed copies be collated?
+		starting_page [lwfp] <long> (r/o) -- the first page of the document to be printed
+		ending_page [lwlp] <long> (r/o) -- the last page of the document to be printed
+		pages_across [lwla] <long> (r/o) -- number of logical pages laid across a physical page
+		pages_down [lwld] <long> (r/o) -- number of logical pages laid out down a physical page
+		error_handling [lweh] <enum> (r/o) -- how errors are handled
+		requested_print_time [lwqt] <ldt > (r/o) -- the time at which the desktop printer should print the document
+		printer_features [lwpf] <list> (r/o) -- printer specific options
+		fax_number [faxn] <TEXT> (r/o) -- for fax number
+		target_printer [trpr] <TEXT> (r/o) -- for target printer
+
+	Enums: [eKnd]
+		track_listing [kTrk] -- a basic listing of tracks within a playlist
+		album_listing [kAlb] -- a listing of a playlist grouped by album
+		cd_insert [kCDi] -- a printout of the playlist for jewel case inserts
+
+	Enums: [enum]
+		standard [lwst] -- Standard PostScript error handling
+		detailed [lwdt] -- print a detailed report of PostScript errors
+
+
+Suite: iTunes Suite [hook] -- The event suite specific to iTunes
+
+	Event: add [hookAdd ] -- add one or more files to a playlist
+		<alis> (list) -- the file(s) to add
+		to [insh] <insl> (optional) -- the location of the added file(s)
+		Result: <cTrk> -- reference to added track(s)
+
+	Event: back_track [hookBack] -- reposition to beginning of current track or go to previous track if already at start of current track
+		<null>
+		Result: <null>
+
+	Event: convert [hookConv] -- convert one or more files or tracks
+		<obj > (list) -- the file(s)/tracks(s) to convert
+		Result: <cTrk> -- reference to converted track(s)
+
+	Event: fast_forward [hookFast] -- skip forward in a playing track
+		<null>
+		Result: <null>
+
+	Event: next_track [hookNext] -- advance to the next track in the current playlist
+		<null>
+		Result: <null>
+
+	Event: pause [hookPaus] -- pause playback
+		<null>
+		Result: <null>
+
+	Event: play [hookPlay] -- play the current track or the specified track or file.
+		<obj > (optional) -- item to play
+		once [POne] <bool> (optional) -- If true, play this track once and then stop.
+		Result: <null>
+
+	Event: playpause [hookPlPs] -- toggle the playing/paused state of the current track
+		<null>
+		Result: <null>
+
+	Event: previous_track [hookPrev] -- return to the previous track in the current playlist
+		<null>
+		Result: <null>
+
+	Event: refresh [hookRfrs] -- update file track information from the current information in the track’s file
+		<cFlT> -- the file track to update
+		Result: <null>
+
+	Event: resume [hookResu] -- disable fast forward/rewind and resume playback, if playing.
+		<null>
+		Result: <null>
+
+	Event: reveal [hookRevl] -- reveal and select a track or playlist
+		<cobj> -- the item to reveal
+		Result: <null>
+
+	Event: rewind [hookRwnd] -- skip backwards in a playing track
+		<null>
+		Result: <null>
+
+	Event: search [hookSrch] -- search a playlist for tracks matching the search string. Identical to entering search text in the Search field in iTunes.
+		<cPly> -- the playlist to search
+		for [pTrm] <utxt> -- the search text
+		only [pAre] <eSrA> (optional, enum) -- area to search (default is all)
+		Result: <cTrk> -- reference to found track(s)
+
+	Event: stop [hookStop] -- stop playback
+		<null>
+		Result: <null>
+
+	Event: update [hookUpdt] -- update the specified iPod
+		<cSrc> (optional) -- the iPod to update
+		Result: <null>
+
+	Event: eject [hookEjct] -- eject the specified iPod
+		<cSrc> (optional) -- the iPod to eject
+		Result: <null>
+
+	Event: subscribe [hookpSub] -- subscribe to a podcast feed
+		<TEXT> -- the URL of the feed to subscribe to
+		Result: <null>
+
+	Event: updateAllPodcasts [hookUpdp] -- update all subscribed podcast feeds
+		<null> (optional)
+		Result: <null>
+
+	Event: updatePodcast [hookUpd1] -- update podcast feed
+		<null>
+		Result: <null>
+
+	Event: download [hookDwnl] -- download podcast episode
+		<cURT>
+		Result: <null>
+
+
+	Class: application [capp] -- The application program
+		current_encoder [pEnc] <cEnc> -- the currently selected encoder (MP3, AIFF, WAV, etc.)
+		current_EQ_preset [pEQP] <cEQP> -- the currently selected equalizer preset
+		current_playlist [pPla] <cPly> (r/o) -- the playlist containing the currently targeted track
+		current_stream_title [pStT] <utxt> (r/o) -- the name of the current song in the playing stream (provided by streaming server)
+		current_stream_URL [pStU] <utxt> (r/o) -- the URL of the playing stream or streaming web site (provided by streaming server)
+		current_track [pTrk] <cTrk> (r/o) -- the current targeted track
+		current_visual [pVis] <cVis> --  the currently selected visual plug-in
+		EQ_enabled [pEQ ] <bool> -- is the equalizer enabled?
+		fixed_indexing [pFix] <bool> -- true if all AppleScript track indices should be independent of the play order of the owning playlist.
+		frontmost [pisf] <bool> -- is iTunes the frontmost application?
+		full_screen [pFSc] <bool> -- are visuals displayed using the entire screen?
+		name [pnam] <utxt> (r/o) -- the name of the application
+		mute [pMut] <bool> -- has the sound output been muted?
+		player_position [pPos] <long> (enum) -- the player’s position within the currently playing track in seconds.
+		player_state [pPlS] <ePlS> (enum, r/o) -- is iTunes stopped, paused, or playing?
+		selection [sele] <obj > (r/o) -- the selection visible to the user
+		sound_volume [pVol] <long> -- the sound output volume (0 = minimum, 100 = maximum)
+		version [vers] <vers> (r/o) -- the version of iTunes
+		visuals_enabled [pVsE] <bool> -- are visuals currently being displayed?
+		visual_size [pVSz] <eVSz> (enum) -- the size of the displayed visual
+		[cBrW] --index name id 
+		[cEnc] --index name id 
+		[cEQP] --index name id 
+		[cEQW] --index name id 
+		[cPlW] --index name id 
+		[cSrc] --index name id 
+		[cVis] --index name id 
+		[cwin] --index name id 
+
+	Class: artwork [cArt] -- a piece of art within a track
+		<Inheritance> <cobj> -- All of the properties of the superclass.
+		data [pPCT] <PICT> -- data for this artwork, in the form of a picture
+		description [pDes] <utxt> -- description of artwork as a string
+		downloaded [pDlA] <bool> (r/o) -- was this artwork downloaded by iTunes?
+		format [pFmt] <type> (r/o) -- the data format for this piece of artwork
+		kind [pKnd] <long> -- kind or purpose of this piece of artwork
+		raw_data [pRaw] <tdta> -- data for this artwork, in original format
+
+	Class: artworks [cArt]
+		(plural synonym)
+
+	Class: audio_CD_playlist [cCDP] -- a playlist representing an audio CD
+		<Inheritance> <cPly> -- All of the properties of the superclass.
+		artist [pArt] <utxt> -- the artist of the CD
+		compilation [pAnt] <bool> -- is this CD a compilation album?
+		composer [pCmp] <utxt> -- the composer of the CD
+		disc_count [pDsC] <long> -- the total number of discs in this CD’s album
+		disc_number [pDsN] <long> -- the index of this CD disc in the source album
+		genre [pGen] <utxt> -- the genre of the CD
+		year [pYr ] <long> -- the year the album was recorded/released
+		[cCDT] --index name id 
+
+	Class: audio_CD_playlists [cCDP]
+		(plural synonym)
+
+	Class: audio_CD_track [cCDT] -- a track on an audio CD
+		<Inheritance> <cTrk> -- All of the properties of the superclass.
+		location [pLoc] <alis> (r/o) -- the location of the file represented by this track
+
+	Class: audio_CD_tracks [cCDT]
+		(plural synonym)
+
+	Class: browser_window [cBrW] -- the main iTunes window
+		<Inheritance> <cwin> -- All of the properties of the superclass.
+		minimized [pMin] <bool> -- is the small player visible?
+		selection [sele] <obj > (r/o) -- the selected songs
+		view [pPly] <cPly> -- the playlist currently displayed in the window
+
+	Class: browser_windows [cBrW]
+		(plural synonym)
+
+	Class: device_playlist [cDvP] -- a playlist representing the contents of a portable device
+		<Inheritance> <cPly> -- All of the properties of the superclass.
+		[cDvT] --index name id 
+
+	Class: device_playlists [cDvP]
+		(plural synonym)
+
+	Class: device_track [cDvT] -- a track residing on a portable music player
+		<Inheritance> <cTrk> -- All of the properties of the superclass.
+
+	Class: device_tracks [cDvT]
+		(plural synonym)
+
+	Class: encoder [cEnc] -- converts a track to a specific file format
+		<Inheritance> <cobj> -- All of the properties of the superclass.
+		format [pFmt] <utxt> (r/o) -- the data format created by the encoder
+
+	Class: encoders [cEnc]
+		(plural synonym)
+
+	Class: EQ_preset [cEQP] -- equalizer preset configuration
+		<Inheritance> <cobj> -- All of the properties of the superclass.
+		band_1 [pEQ1] <sing> -- the equalizer 32 Hz band level (-12.0 dB to +12.0 dB)
+		band_2 [pEQ2] <sing> -- the equalizer 64 Hz band level (-12.0 dB to +12.0 dB)
+		band_3 [pEQ3] <sing> -- the equalizer 125 Hz band level (-12.0 dB to +12.0 dB)
+		band_4 [pEQ4] <sing> -- the equalizer 250 Hz band level (-12.0 dB to +12.0 dB)
+		band_5 [pEQ5] <sing> -- the equalizer 500 Hz band level (-12.0 dB to +12.0 dB)
+		band_6 [pEQ6] <sing> -- the equalizer 1 kHz band level (-12.0 dB to +12.0 dB)
+		band_7 [pEQ7] <sing> -- the equalizer 2 kHz band level (-12.0 dB to +12.0 dB)
+		band_8 [pEQ8] <sing> -- the equalizer 4 kHz band level (-12.0 dB to +12.0 dB)
+		band_9 [pEQ9] <sing> -- the equalizer 8 kHz band level (-12.0 dB to +12.0 dB)
+		band_10 [pEQ0] <sing> -- the equalizer 16 kHz band level (-12.0 dB to +12.0 dB)
+		modifiable [pMod] <bool> (r/o) -- can this preset be modified?
+		preamp [pEQA] <sing> -- the equalizer preamp level (-12.0 dB to +12.0 dB)
+		update_tracks [pUTC] <bool> -- should tracks which refer to this preset be updated when the preset is renamed or deleted?
+
+	Class: EQ_presets [cEQP]
+		(plural synonym)
+
+	Class: EQ_window [cEQW] -- the iTunes equalizer window
+		<Inheritance> <cwin> -- All of the properties of the superclass.
+		minimized [pMin] <bool> -- is the small EQ window visible?
+
+	Class: EQ_windows [cEQW]
+		(plural synonym)
+
+	Class: file_track [cFlT] -- a track representing an audio file (MP3, AIFF, etc.)
+		<Inheritance> <cTrk> -- All of the properties of the superclass.
+		location [pLoc] <alis> -- the location of the file represented by this track
+
+	Class: file_tracks [cFlT]
+		(plural synonym)
+
+	Class: folder_playlist [cFoP] -- a folder that contains other playlists
+		<Inheritance> <cUsP> -- All of the properties of the superclass.
+
+	Class: folder_playlists [cFoP]
+		(plural synonym)
+
+	Class: item [cobj] -- an item
+		container [ctnr] <obj > (r/o) -- the container of the item
+		id_ [ID  ] <long> (r/o) -- the id of the item
+		index [pidx] <long> (r/o) -- The index of the item in internal application order.
+		name [pnam] <utxt> -- the name of the item
+		persistent_ID [pPIS] <TEXT> (r/o) -- the id of the item as a hexidecimal string. This id does not change over time.
+
+	Class: items [cobj]
+		(plural synonym)
+
+	Class: library_playlist [cLiP] -- the master music library playlist
+		<Inheritance> <cPly> -- All of the properties of the superclass.
+		[cFlT] --index name id 
+		[cURT] --index name id 
+		[cShT] --
+
+	Class: library_playlists [cLiP]
+		(plural synonym)
+
+	Class: playlist [cPly] -- a list of songs/streams
+		<Inheritance> <cobj> -- All of the properties of the superclass.
+		duration [pDur] <long> (r/o) -- the total length of all songs (in seconds)
+		name [pnam] <utxt> -- the name of the playlist
+		parent [pPlP] <cPly> (r/o) -- folder which contains this playlist (if any)
+		shuffle [pShf] <bool> -- play the songs in this playlist in random order?
+		size [pSiz] <comp> (r/o) -- the total size of all songs (in bytes)
+		song_repeat [pRpt] <eRpt> (enum) -- playback repeat mode
+		special_kind [pSpK] <eSpK> (enum, r/o) -- special playlist kind
+		time [pTim] <utxt> (r/o) -- the length of all songs in MM:SS format
+		visible [pvis] <bool> (r/o) -- is this playlist visible in the Source list?
+		[cTrk] --index name id 
+
+	Class: playlists [cPly]
+		(plural synonym)
+
+	Class: playlist_window [cPlW] -- a sub-window showing a single playlist
+		<Inheritance> <cwin> -- All of the properties of the superclass.
+		selection [sele] <obj > (r/o) -- the selected songs
+		view [pPly] <cPly> (r/o) -- the playlist displayed in the window
+
+	Class: playlist_windows [cPlW]
+		(plural synonym)
+
+	Class: radio_tuner_playlist [cRTP] -- the radio tuner playlist
+		<Inheritance> <cPly> -- All of the properties of the superclass.
+		[cURT] --index name id 
+
+	Class: radio_tuner_playlists [cRTP]
+		(plural synonym)
+
+	Class: shared_track [cShT] -- a track residing in a shared library
+		<Inheritance> <cTrk> -- All of the properties of the superclass.
+
+	Class: shared_tracks [cShT]
+		(plural synonym)
+
+	Class: source [cSrc] -- a music source (music library, CD, device, etc.)
+		<Inheritance> <cobj> -- All of the properties of the superclass.
+		capacity [capa] <comp> (r/o) -- the total size of the source if it has a fixed size
+		free_space [frsp] <comp> (r/o) -- the free space on the source if it has a fixed size
+		kind [pKnd] <eSrc> (enum, r/o)
+		[cCDP] --index name id 
+		[cDvP] --index name id 
+		[cLiP] --index name id 
+		[cPly] --index name id 
+		[cRTP] --index name id 
+		[cUsP] --index name id 
+
+	Class: sources [cSrc]
+		(plural synonym)
+
+	Class: track [cTrk] -- playable audio source
+		<Inheritance> <cobj> -- All of the properties of the superclass.
+		album [pAlb] <utxt> -- the album name of the track
+		album_artist [pAlA] <utxt> -- the album artist of the track
+		album_rating [pAlR] <long> -- the rating of the album for this track (0 to 100)
+		album_rating_kind [pARk] <eRtK> (enum, r/o) -- the rating kind of the album rating for this track
+		artist [pArt] <utxt> -- the artist/source of the track
+		bit_rate [pBRt] <long> (r/o) -- the bit rate of the track (in kbps)
+		bookmark [pBkt] <sing> -- the bookmark time of the track in seconds
+		bookmarkable [pBkm] <bool> -- is the playback position for this track remembered?
+		bpm [pBPM] <long> -- the tempo of this track in beats per minute
+		category [pCat] <utxt> -- the category of the track
+		comment [pCmt] <utxt> -- freeform notes about the track
+		compilation [pAnt] <bool> -- is this track from a compilation album?
+		composer [pCmp] <utxt> -- the composer of the track
+		database_ID [pDID] <long> (r/o) -- the common, unique ID for this track. If two tracks in different playlists have the same database ID, they are sharing the same data.
+		date_added [pAdd] <ldt > (r/o) -- the date the track was added to the playlist
+		description [pDes] <utxt> -- the description of the track
+		disc_count [pDsC] <long> -- the total number of discs in the source album
+		disc_number [pDsN] <long> -- the index of the disc containing this track on the source album
+		duration [pDur] <sing> (r/o) -- the length of the track in seconds
+		enabled [enbl] <bool> -- is this track checked for playback?
+		episode_ID [pEpD] <utxt> -- the episode ID of the track
+		episode_number [pEpN] <long> -- the episode number of the track
+		EQ [pEQp] <utxt> -- the name of the EQ preset of the track
+		finish [pStp] <sing> -- the stop time of the track in seconds
+		gapless [pGpl] <bool> -- is this track from a gapless album?
+		genre [pGen] <utxt> -- the music/audio genre (category) of the track
+		grouping [pGrp] <utxt> -- the grouping (piece) of the track. Generally used to denote movements within a classical work.
+		kind [pKnd] <utxt> (enum, r/o) -- a text description of the track
+		long_description [pLds] <utxt>
+		lyrics [pLyr] <utxt> -- the lyrics of the track
+		modification_date [asmo] <ldt > (r/o) -- the modification date of the content of this track
+		played_count [pPlC] <long> -- number of times this track has been played
+		played_date [pPlD] <ldt > -- the date and time this track was last played
+		podcast [pTPc] <bool> (r/o) -- is this track a podcast episode?
+		rating [pRte] <long> -- the rating of this track (0 to 100)
+		rating_kind [pRtk] <eRtK> (enum, r/o) -- the rating kind of this track
+		release_date [pRlD] <ldt > (r/o) -- the release date of this track
+		sample_rate [pSRt] <long> (r/o) -- the sample rate of the track (in Hz)
+		season_number [pSeN] <long> -- the season number of the track
+		shufflable [pSfa] <bool> -- is this track included when shuffling?
+		skipped_count [pSkC] <long> -- number of times this track has been skipped
+		skipped_date [pSkD] <ldt > -- the date and time this track was last skipped
+		show [pShw] <utxt> -- the show name of the track
+		sort_album [pSAl] <utxt> -- override string to use for the track when sorting by album
+		sort_artist [pSAr] <utxt> -- override string to use for the track when sorting by artist
+		sort_album_artist [pSAA] <utxt> -- override string to use for the track when sorting by album artist
+		sort_name [pSNm] <utxt> -- override string to use for the track when sorting by name
+		sort_composer [pSCm] <utxt> -- override string to use for the track when sorting by composer
+		sort_show [pSSN] <utxt> -- override string to use for the track when sorting by show name
+		size [pSiz] <long> (r/o) -- the size of the track (in bytes)
+		start [pStr] <sing> -- the start time of the track in seconds
+		time [pTim] <utxt> (r/o) -- the length of the track in MM:SS format
+		track_count [pTrC] <long> -- the total number of tracks on the source album
+		track_number [pTrN] <long> -- the index of the track on the source album
+		unplayed [pUnp] <bool> -- is this track unplayed?
+		video_kind [pVdK] <eVdK> (enum) -- kind of video track
+		volume_adjustment [pAdj] <long> -- relative volume adjustment of the track (-100% to 100%)
+		year [pYr ] <long> -- the year the track was recorded/released
+		[cArt] --index 
+
+	Class: tracks [cTrk]
+		(plural synonym)
+
+	Class: URL_track [cURT] -- a track representing a network stream
+		<Inheritance> <cTrk> -- All of the properties of the superclass.
+		address [pURL] <utxt> -- the URL for this track
+
+	Class: URL_tracks [cURT]
+		(plural synonym)
+
+	Class: user_playlist [cUsP] -- custom playlists created by the user
+		<Inheritance> <cPly> -- All of the properties of the superclass.
+		shared [pShr] <bool> -- is this playlist shared?
+		smart [pSmt] <bool> (r/o) -- is this a Smart Playlist?
+		[cFlT] --index name id 
+		[cURT] --index name id 
+		[cShT] --
+
+	Class: user_playlists [cUsP]
+		(plural synonym)
+
+	Class: visual [cVis] -- a visual plug-in
+		<Inheritance> <cobj> -- All of the properties of the superclass.
+
+	Class: visuals [cVis]
+		(plural synonym)
+
+	Class: window [cwin] -- any window
+		<Inheritance> <cobj> -- All of the properties of the superclass.
+		bounds [pbnd] <qdrt> -- the boundary rectangle for the window
+		closeable [hclb] <bool> (r/o) -- does the window have a close box?
+		collapseable [pWSh] <bool> (r/o) -- does the window have a collapse (windowshade) box?
+		collapsed [wshd] <bool> -- is the window collapsed?
+		position [ppos] <QDpt> -- the upper left position of the window
+		resizable [prsz] <bool> (r/o) -- is the window resizable?
+		visible [pvis] <bool> -- is the window visible?
+		zoomable [iszm] <bool> (r/o) -- is the window zoomable?
+		zoomed [pzum] <bool> -- is the window zoomed?
+
+	Class: windows [cwin] -- any window
+		(plural synonym)
+
+	Enums: [ePlS]
+		stopped [kPSS]
+		playing [kPSP]
+		paused [kPSp]
+		fast_forwarding [kPSF]
+		rewinding [kPSR]
+
+	Enums: [eRpt]
+		off [kRpO]
+		one [kRp1]
+		all [kAll]
+
+	Enums: [eVSz]
+		small [kVSS]
+		medium [kVSM]
+		large [kVSL]
+
+	Enums: [eSrc]
+		library [kLib]
+		iPod [kPod]
+		audio_CD [kACD]
+		MP3_CD [kMCD]
+		device [kDev]
+		radio_tuner [kTun]
+		shared_library [kShd]
+		unknown [kUnk]
+
+	Enums: [eSrA]
+		albums [kSrL] -- albums only
+		all [kAll] -- all text fields
+		artists [kSrR] -- artists only
+		composers [kSrC] -- composers only
+		displayed [kSrV] -- visible text fields
+		songs [kSrS] -- song names only
+
+	Enums: [eSpK]
+		none [kNon]
+		Books [kSpA]
+		folder [kSpF]
+		Genius [kSpG]
+		iTunes_U [kSpU]
+		Library [kSpL]
+		Movies [kSpI]
+		Music [kSpZ]
+		Party_Shuffle [kSpS]
+		Podcasts [kSpP]
+		Purchased_Music [kSpM]
+		TV_Shows [kSpT]
+
+	Enums: [eVdK]
+		none [kNon] -- not a video or unknown video kind
+		movie [kVdM] -- movie track
+		music_video [kVdV] -- music video track
+		TV_show [kVdT] -- TV show track
+
+	Enums: [eRtK]
+		user [kRtU] -- user-specified rating
+		computed [kRtC] -- iTunes-computed rating
+
+
+Suite: Internet suite [gurl] -- Standard terms for Internet scripting
+
+	Event: open_location [GURLGURL] -- Opens a Music Store or audio stream URL
+		<TEXT> (optional) -- the URL to open
+		Result: <null>
+

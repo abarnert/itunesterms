@@ -1,0 +1,2267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+
+<title>iTunes.app terminology</title>
+
+<style type="text/css" media="all">
+	h1 {padding-bottom:2px; border-bottom:solid 2px black; margin:0;}
+	h1+p {font-weight:bold; font-size:0.8em; margin-top:1px;}
+	h2 {margin-top:0;}
+	#content {padding-right:8px;}
+	#content > ul > li {margin-bottom:1em;}
+	#sidebar h2 {font-size:1em;}
+	#sidebar ul {padding-left:0; margin-left:1.2em;}
+	#sidebar li {font-size:0.8em; white-space:nowrap;}
+	#sidebar .box {padding-left:8px; border-left:dashed 1px black;}
+	li {list-style-type:none;}
+	a {color:#000; text-decoration:none;}
+	a {border-bottom:dotted 1px black;}
+	a:hover {border-bottom:solid 1px black;}
+</style>
+<style type="text/css" media="screen">
+	h2 span, h3 span {font-family:Courier; font-size:12px;}
+</style>
+<style type="text/css" media="print">
+	body {font-size:10pt;}
+	h1 {font-size:24pt;}
+	h2 {font-size:18pt;}
+	h3 {font-size:14pt;}
+	#sidebar {display:none;}
+</style>
+
+</head><body>
+
+<h1>iTunes.app terminology</h1>
+
+<p>/Applications/iTunes.app</p>
+
+<table>
+<tr>
+<td id="content" valign="top" width="90%">
+	
+		<a name="suite_Standard_Suite" id="suite_Standard_Suite"></a>
+		<h2>Standard Suite</h2>
+
+		<p>Common terms for most applications</p>
+		
+		
+		
+			<h3>Commands</h3>
+			<ul>
+				<li>
+					<a name="command_print__Standard_Suite"></a>
+					<strong>print</strong>
+					 -- Print the specified object(s)
+					<ul>
+						<li>
+							[<em>reference</em>]
+							 -- list of objects to print
+						</li>
+						<li>
+							[<strong>printDialog</strong> <em>boolean</em>]
+							 -- Should the application show the print dialog
+						</li>
+<li>
+							[<strong>withProperties</strong> <em><a href="#class_printSettings__Standard_Suite">printSettings</a></em>]
+							 -- the print settings
+						</li>
+<li>
+							[<strong>kind</strong> <em>trackListing / albumListing / cdInsert</em>]
+							 -- the kind of printout desired
+						</li>
+<li>
+							[<strong>theme</strong> <em>unicodeText</em>]
+							 -- name of theme to use for formatting the printout
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_close__Standard_Suite"></a>
+					<strong>close</strong>
+					 -- Close an object
+					<ul>
+						<li>
+							<em>reference</em>
+							 -- the object to close
+						</li>
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_count__Standard_Suite"></a>
+					<strong>count</strong>
+					 -- Return the number of elements of a particular class within an object
+					<ul>
+						<li>
+							<em>reference</em>
+							 -- the object whose elements are to be counted
+						</li>
+						<li>
+							<strong>each</strong> <em>typeClass</em>
+							 -- the class of the elements to be counted. Keyword 'each' is optional in AppleScript
+						</li>
+						<li>
+							Result: <em>integer</em>
+							 -- the number of elements
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="command_delete__Standard_Suite"></a>
+					<strong>delete</strong>
+					 -- Delete an element from an object
+					<ul>
+						<li>
+							<em>reference</em>
+							 -- the element to delete
+						</li>
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_duplicate__Standard_Suite"></a>
+					<strong>duplicate</strong>
+					 -- Duplicate one or more object(s)
+					<ul>
+						<li>
+							<em>reference</em>
+							 -- the object(s) to duplicate
+						</li>
+						<li>
+							[<strong>to</strong> <em>locationReference</em>]
+							 -- the new location for the object(s)
+						</li>
+						<li>
+							Result: <em>reference</em>
+							 -- to the duplicated object(s)
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="command_exists__Standard_Suite"></a>
+					<strong>exists</strong>
+					 -- Verify if an object exists
+					<ul>
+						<li>
+							<em>reference</em>
+							 -- the object in question
+						</li>
+						
+						<li>
+							Result: <em>boolean</em>
+							 -- true if it exists, false if not
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="command_make__Standard_Suite"></a>
+					<strong>make</strong>
+					 -- Make a new element
+					<ul>
+						
+						<li>
+							<strong>new_</strong> <em>typeClass</em>
+							 -- the class of the new element. Keyword 'new' is optional in AppleScript
+						</li>
+<li>
+							[<strong>at</strong> <em>locationReference</em>]
+							 -- the location at which to insert the element
+						</li>
+<li>
+							[<strong>withProperties</strong> <em>record</em>]
+							 -- the initial values for the properties of the element
+						</li>
+						<li>
+							Result: <em>reference</em>
+							 -- to the new object(s)
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="command_move__Standard_Suite"></a>
+					<strong>move</strong>
+					 -- Move playlist(s) to a new location
+					<ul>
+						<li>
+							<em><a href="#class_playlist__iTunes_Suite">playlist</a></em>
+							 -- the playlist(s) to move
+						</li>
+						<li>
+							<strong>to</strong> <em>locationReference</em>
+							 -- the new location for the playlist(s)
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_open__Standard_Suite"></a>
+					<strong>open</strong>
+					 -- open the specified object(s)
+					<ul>
+						<li>
+							<em>reference</em>
+							 -- list of objects to open
+						</li>
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_run__Standard_Suite"></a>
+					<strong>run</strong>
+					 -- run iTunes
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_quit__Standard_Suite"></a>
+					<strong>quit</strong>
+					 -- quit iTunes
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_set__Standard_Suite"></a>
+					<strong>set</strong>
+					
+					<ul>
+						<li>
+							<em>reference</em>
+							
+						</li>
+						<li>
+							<strong>to</strong> <em>anything</em>
+							
+						</li>
+						
+					</ul>
+				</li>
+			</ul>
+		
+		
+		
+		
+			<h3>Classes</h3>
+			<ul>
+				<li>
+					<a name="class_printSettings__Standard_Suite"></a>
+					<strong>printSettings</strong>
+					
+					<ul>
+						
+						
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>copies</strong>
+									(r/o)
+									<em>integer</em>
+									 -- the number of copies of a document to be printed
+								</li>
+<li>
+									<strong>collating</strong>
+									(r/o)
+									<em>boolean</em>
+									 -- Should printed copies be collated?
+								</li>
+<li>
+									<strong>startingPage</strong>
+									(r/o)
+									<em>integer</em>
+									 -- the first page of the document to be printed
+								</li>
+<li>
+									<strong>endingPage</strong>
+									(r/o)
+									<em>integer</em>
+									 -- the last page of the document to be printed
+								</li>
+<li>
+									<strong>pagesAcross</strong>
+									(r/o)
+									<em>integer</em>
+									 -- number of logical pages laid across a physical page
+								</li>
+<li>
+									<strong>pagesDown</strong>
+									(r/o)
+									<em>integer</em>
+									 -- number of logical pages laid out down a physical page
+								</li>
+<li>
+									<strong>errorHandling</strong>
+									(r/o)
+									<em>standard / detailed</em>
+									 -- how errors are handled
+								</li>
+<li>
+									<strong>requestedPrintTime</strong>
+									(r/o)
+									<em>date</em>
+									 -- the time at which the desktop printer should print the document
+								</li>
+<li>
+									<strong>printerFeatures</strong>
+									(r/o)
+									<em>list</em>
+									 -- printer specific options
+								</li>
+<li>
+									<strong>faxNumber</strong>
+									(r/o)
+									<em>string</em>
+									 -- for fax number
+								</li>
+<li>
+									<strong>targetPrinter</strong>
+									(r/o)
+									<em>string</em>
+									 -- for target printer
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</li>
+			</ul>
+		
+		
+	
+
+		<a name="suite_iTunes_Suite" id="suite_iTunes_Suite"></a>
+		<h2>iTunes Suite</h2>
+
+		<p>The event suite specific to iTunes</p>
+		
+		
+		
+			<h3>Commands</h3>
+			<ul>
+				<li>
+					<a name="command_add__iTunes_Suite"></a>
+					<strong>add</strong>
+					 -- add one or more files to a playlist
+					<ul>
+						<li>
+							<em>list of alias</em>
+							 -- the file(s) to add
+						</li>
+						<li>
+							[<strong>to</strong> <em>locationReference</em>]
+							 -- the location of the added file(s)
+						</li>
+						<li>
+							Result: <em><a href="#class_track__iTunes_Suite">track</a></em>
+							 -- reference to added track(s)
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="command_backTrack__iTunes_Suite"></a>
+					<strong>backTrack</strong>
+					 -- reposition to beginning of current track or go to previous track if already at start of current track
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_convert__iTunes_Suite"></a>
+					<strong>convert</strong>
+					 -- convert one or more files or tracks
+					<ul>
+						<li>
+							<em>list of reference</em>
+							 -- the file(s)/tracks(s) to convert
+						</li>
+						
+						<li>
+							Result: <em><a href="#class_track__iTunes_Suite">track</a></em>
+							 -- reference to converted track(s)
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="command_fastForward__iTunes_Suite"></a>
+					<strong>fastForward</strong>
+					 -- skip forward in a playing track
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_nextTrack__iTunes_Suite"></a>
+					<strong>nextTrack</strong>
+					 -- advance to the next track in the current playlist
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_pause__iTunes_Suite"></a>
+					<strong>pause</strong>
+					 -- pause playback
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_play__iTunes_Suite"></a>
+					<strong>play</strong>
+					 -- play the current track or the specified track or file.
+					<ul>
+						<li>
+							[<em>reference</em>]
+							 -- item to play
+						</li>
+						<li>
+							[<strong>once</strong> <em>boolean</em>]
+							 -- If true, play this track once and then stop.
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_playpause__iTunes_Suite"></a>
+					<strong>playpause</strong>
+					 -- toggle the playing/paused state of the current track
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_previousTrack__iTunes_Suite"></a>
+					<strong>previousTrack</strong>
+					 -- return to the previous track in the current playlist
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_refresh__iTunes_Suite"></a>
+					<strong>refresh</strong>
+					 -- update file track information from the current information in the track&#8217;s file
+					<ul>
+						<li>
+							<em><a href="#class_fileTrack__iTunes_Suite">fileTrack</a></em>
+							 -- the file track to update
+						</li>
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_resume__iTunes_Suite"></a>
+					<strong>resume</strong>
+					 -- disable fast forward/rewind and resume playback, if playing.
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_reveal__iTunes_Suite"></a>
+					<strong>reveal</strong>
+					 -- reveal and select a track or playlist
+					<ul>
+						<li>
+							<em><a href="#class_item__iTunes_Suite">item</a></em>
+							 -- the item to reveal
+						</li>
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_rewind__iTunes_Suite"></a>
+					<strong>rewind</strong>
+					 -- skip backwards in a playing track
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_search__iTunes_Suite"></a>
+					<strong>search</strong>
+					 -- search a playlist for tracks matching the search string. Identical to entering search text in the Search field in iTunes.
+					<ul>
+						<li>
+							<em><a href="#class_playlist__iTunes_Suite">playlist</a></em>
+							 -- the playlist to search
+						</li>
+						<li>
+							<strong>for_</strong> <em>unicodeText</em>
+							 -- the search text
+						</li>
+<li>
+							[<strong>only</strong> <em>albums / all / artists / composers / displayed / songs</em>]
+							 -- area to search (default is all)
+						</li>
+						<li>
+							Result: <em><a href="#class_track__iTunes_Suite">track</a></em>
+							 -- reference to found track(s)
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="command_stop__iTunes_Suite"></a>
+					<strong>stop</strong>
+					 -- stop playback
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_update__iTunes_Suite"></a>
+					<strong>update</strong>
+					 -- update the specified iPod
+					<ul>
+						<li>
+							[<em><a href="#class_source__iTunes_Suite">source</a></em>]
+							 -- the iPod to update
+						</li>
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_eject__iTunes_Suite"></a>
+					<strong>eject</strong>
+					 -- eject the specified iPod
+					<ul>
+						<li>
+							[<em><a href="#class_source__iTunes_Suite">source</a></em>]
+							 -- the iPod to eject
+						</li>
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_subscribe__iTunes_Suite"></a>
+					<strong>subscribe</strong>
+					 -- subscribe to a podcast feed
+					<ul>
+						<li>
+							<em>string</em>
+							 -- the URL of the feed to subscribe to
+						</li>
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_updateAllPodcasts__iTunes_Suite"></a>
+					<strong>updateAllPodcasts</strong>
+					 -- update all subscribed podcast feeds
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_updatePodcast__iTunes_Suite"></a>
+					<strong>updatePodcast</strong>
+					 -- update podcast feed
+					<ul>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="command_download__iTunes_Suite"></a>
+					<strong>download</strong>
+					 -- download podcast episode
+					<ul>
+						<li>
+							<em><a href="#class_URLTrack__iTunes_Suite">URLTrack</a></em>
+							
+						</li>
+						
+						
+					</ul>
+				</li>
+			</ul>
+		
+		
+		
+		
+			<h3>Classes</h3>
+			<ul>
+				<li>
+					<a name="class_application__iTunes_Suite"></a>
+					<strong>application</strong>
+					 -- The application program
+					<ul>
+						
+						
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>currentEncoder</strong>
+									
+									<em><a href="#class_encoder__iTunes_Suite">encoder</a></em>
+									 -- the currently selected encoder (MP3, AIFF, WAV, etc.)
+								</li>
+<li>
+									<strong>currentEQPreset</strong>
+									
+									<em><a href="#class_EQPreset__iTunes_Suite">EQPreset</a></em>
+									 -- the currently selected equalizer preset
+								</li>
+<li>
+									<strong>currentPlaylist</strong>
+									(r/o)
+									<em><a href="#class_playlist__iTunes_Suite">playlist</a></em>
+									 -- the playlist containing the currently targeted track
+								</li>
+<li>
+									<strong>currentStreamTitle</strong>
+									(r/o)
+									<em>unicodeText</em>
+									 -- the name of the current song in the playing stream (provided by streaming server)
+								</li>
+<li>
+									<strong>currentStreamURL</strong>
+									(r/o)
+									<em>unicodeText</em>
+									 -- the URL of the playing stream or streaming web site (provided by streaming server)
+								</li>
+<li>
+									<strong>currentTrack</strong>
+									(r/o)
+									<em><a href="#class_track__iTunes_Suite">track</a></em>
+									 -- the current targeted track
+								</li>
+<li>
+									<strong>currentVisual</strong>
+									
+									<em><a href="#class_visual__iTunes_Suite">visual</a></em>
+									 --  the currently selected visual plug-in
+								</li>
+<li>
+									<strong>EQEnabled</strong>
+									
+									<em>boolean</em>
+									 -- is the equalizer enabled?
+								</li>
+<li>
+									<strong>fixedIndexing</strong>
+									
+									<em>boolean</em>
+									 -- true if all AppleScript track indices should be independent of the play order of the owning playlist.
+								</li>
+<li>
+									<strong>frontmost</strong>
+									
+									<em>boolean</em>
+									 -- is iTunes the frontmost application?
+								</li>
+<li>
+									<strong>fullScreen</strong>
+									
+									<em>boolean</em>
+									 -- are visuals displayed using the entire screen?
+								</li>
+<li>
+									<strong>name</strong>
+									(r/o)
+									<em>unicodeText</em>
+									 -- the name of the application
+								</li>
+<li>
+									<strong>mute</strong>
+									
+									<em>boolean</em>
+									 -- has the sound output been muted?
+								</li>
+<li>
+									<strong>playerPosition</strong>
+									
+									<em>integer</em>
+									 -- the player&#8217;s position within the currently playing track in seconds.
+								</li>
+<li>
+									<strong>playerState</strong>
+									(r/o)
+									<em>stopped / playing / paused / fastForwarding / rewinding</em>
+									 -- is iTunes stopped, paused, or playing?
+								</li>
+<li>
+									<strong>selection</strong>
+									(r/o)
+									<em>reference</em>
+									 -- the selection visible to the user
+								</li>
+<li>
+									<strong>soundVolume</strong>
+									
+									<em>integer</em>
+									 -- the sound output volume (0 = minimum, 100 = maximum)
+								</li>
+<li>
+									<strong>version_</strong>
+									(r/o)
+									<em>version</em>
+									 -- the version of iTunes
+								</li>
+<li>
+									<strong>visualsEnabled</strong>
+									
+									<em>boolean</em>
+									 -- are visuals currently being displayed?
+								</li>
+<li>
+									<strong>visualSize</strong>
+									
+									<em>small / medium / large</em>
+									 -- the size of the displayed visual
+								</li>
+							</ul>
+						</li>
+						<li>Elements:
+							<ul>
+								<li>
+									<strong><a href="#class_browserWindow__iTunes_Suite">browserWindows</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_encoder__iTunes_Suite">encoders</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_EQPreset__iTunes_Suite">EQPresets</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_EQWindow__iTunes_Suite">EQWindows</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_playlistWindow__iTunes_Suite">playlistWindows</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_source__iTunes_Suite">sources</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_visual__iTunes_Suite">visuals</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_window__iTunes_Suite">windows</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="class_artwork__iTunes_Suite"></a>
+					<strong>artwork</strong>
+					 -- a piece of art within a track
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>artworks</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_item__iTunes_Suite">item</a></em></li>
+							</ul>
+						</li>
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>data_</strong>
+									
+									<em>PICTPicture</em>
+									 -- data for this artwork, in the form of a picture
+								</li>
+<li>
+									<strong>description_</strong>
+									
+									<em>unicodeText</em>
+									 -- description of artwork as a string
+								</li>
+<li>
+									<strong>downloaded</strong>
+									(r/o)
+									<em>boolean</em>
+									 -- was this artwork downloaded by iTunes?
+								</li>
+<li>
+									<strong>format</strong>
+									(r/o)
+									<em>typeClass</em>
+									 -- the data format for this piece of artwork
+								</li>
+<li>
+									<strong>kind</strong>
+									
+									<em>integer</em>
+									 -- kind or purpose of this piece of artwork
+								</li>
+<li>
+									<strong>rawData</strong>
+									
+									<em>&lt;ASType 'tdta'&gt;</em>
+									 -- data for this artwork, in original format
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_audioCDPlaylist__iTunes_Suite"></a>
+					<strong>audioCDPlaylist</strong>
+					 -- a playlist representing an audio CD
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>audioCDPlaylists</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_playlist__iTunes_Suite">playlist</a></em></li>
+							</ul>
+						</li>
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>artist</strong>
+									
+									<em>unicodeText</em>
+									 -- the artist of the CD
+								</li>
+<li>
+									<strong>compilation</strong>
+									
+									<em>boolean</em>
+									 -- is this CD a compilation album?
+								</li>
+<li>
+									<strong>composer</strong>
+									
+									<em>unicodeText</em>
+									 -- the composer of the CD
+								</li>
+<li>
+									<strong>discCount</strong>
+									
+									<em>integer</em>
+									 -- the total number of discs in this CD&#8217;s album
+								</li>
+<li>
+									<strong>discNumber</strong>
+									
+									<em>integer</em>
+									 -- the index of this CD disc in the source album
+								</li>
+<li>
+									<strong>genre</strong>
+									
+									<em>unicodeText</em>
+									 -- the genre of the CD
+								</li>
+<li>
+									<strong>year</strong>
+									
+									<em>integer</em>
+									 -- the year the album was recorded/released
+								</li>
+							</ul>
+						</li>
+						<li>Elements:
+							<ul>
+								<li>
+									<strong><a href="#class_audioCDTrack__iTunes_Suite">audioCDTracks</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="class_audioCDTrack__iTunes_Suite"></a>
+					<strong>audioCDTrack</strong>
+					 -- a track on an audio CD
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>audioCDTracks</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_track__iTunes_Suite">track</a></em></li>
+							</ul>
+						</li>
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>location</strong>
+									(r/o)
+									<em>alias</em>
+									 -- the location of the file represented by this track
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_browserWindow__iTunes_Suite"></a>
+					<strong>browserWindow</strong>
+					 -- the main iTunes window
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>browserWindows</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_window__iTunes_Suite">window</a></em></li>
+							</ul>
+						</li>
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>minimized</strong>
+									
+									<em>boolean</em>
+									 -- is the small player visible?
+								</li>
+<li>
+									<strong>selection</strong>
+									(r/o)
+									<em>reference</em>
+									 -- the selected songs
+								</li>
+<li>
+									<strong>view</strong>
+									
+									<em><a href="#class_playlist__iTunes_Suite">playlist</a></em>
+									 -- the playlist currently displayed in the window
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_devicePlaylist__iTunes_Suite"></a>
+					<strong>devicePlaylist</strong>
+					 -- a playlist representing the contents of a portable device
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>devicePlaylists</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_playlist__iTunes_Suite">playlist</a></em></li>
+							</ul>
+						</li>
+						
+						
+						<li>Elements:
+							<ul>
+								<li>
+									<strong><a href="#class_deviceTrack__iTunes_Suite">deviceTracks</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="class_deviceTrack__iTunes_Suite"></a>
+					<strong>deviceTrack</strong>
+					 -- a track residing on a portable music player
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>deviceTracks</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_track__iTunes_Suite">track</a></em></li>
+							</ul>
+						</li>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_encoder__iTunes_Suite"></a>
+					<strong>encoder</strong>
+					 -- converts a track to a specific file format
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>encoders</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_item__iTunes_Suite">item</a></em></li>
+							</ul>
+						</li>
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>format</strong>
+									(r/o)
+									<em>unicodeText</em>
+									 -- the data format created by the encoder
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_EQPreset__iTunes_Suite"></a>
+					<strong>EQPreset</strong>
+					 -- equalizer preset configuration
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>EQPresets</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_item__iTunes_Suite">item</a></em></li>
+							</ul>
+						</li>
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>band1</strong>
+									
+									<em>shortFloat</em>
+									 -- the equalizer 32 Hz band level (-12.0 dB to +12.0 dB)
+								</li>
+<li>
+									<strong>band2</strong>
+									
+									<em>shortFloat</em>
+									 -- the equalizer 64 Hz band level (-12.0 dB to +12.0 dB)
+								</li>
+<li>
+									<strong>band3</strong>
+									
+									<em>shortFloat</em>
+									 -- the equalizer 125 Hz band level (-12.0 dB to +12.0 dB)
+								</li>
+<li>
+									<strong>band4</strong>
+									
+									<em>shortFloat</em>
+									 -- the equalizer 250 Hz band level (-12.0 dB to +12.0 dB)
+								</li>
+<li>
+									<strong>band5</strong>
+									
+									<em>shortFloat</em>
+									 -- the equalizer 500 Hz band level (-12.0 dB to +12.0 dB)
+								</li>
+<li>
+									<strong>band6</strong>
+									
+									<em>shortFloat</em>
+									 -- the equalizer 1 kHz band level (-12.0 dB to +12.0 dB)
+								</li>
+<li>
+									<strong>band7</strong>
+									
+									<em>shortFloat</em>
+									 -- the equalizer 2 kHz band level (-12.0 dB to +12.0 dB)
+								</li>
+<li>
+									<strong>band8</strong>
+									
+									<em>shortFloat</em>
+									 -- the equalizer 4 kHz band level (-12.0 dB to +12.0 dB)
+								</li>
+<li>
+									<strong>band9</strong>
+									
+									<em>shortFloat</em>
+									 -- the equalizer 8 kHz band level (-12.0 dB to +12.0 dB)
+								</li>
+<li>
+									<strong>band10</strong>
+									
+									<em>shortFloat</em>
+									 -- the equalizer 16 kHz band level (-12.0 dB to +12.0 dB)
+								</li>
+<li>
+									<strong>modifiable</strong>
+									(r/o)
+									<em>boolean</em>
+									 -- can this preset be modified?
+								</li>
+<li>
+									<strong>preamp</strong>
+									
+									<em>shortFloat</em>
+									 -- the equalizer preamp level (-12.0 dB to +12.0 dB)
+								</li>
+<li>
+									<strong>updateTracks</strong>
+									
+									<em>boolean</em>
+									 -- should tracks which refer to this preset be updated when the preset is renamed or deleted?
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_EQWindow__iTunes_Suite"></a>
+					<strong>EQWindow</strong>
+					 -- the iTunes equalizer window
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>EQWindows</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_window__iTunes_Suite">window</a></em></li>
+							</ul>
+						</li>
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>minimized</strong>
+									
+									<em>boolean</em>
+									 -- is the small EQ window visible?
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_fileTrack__iTunes_Suite"></a>
+					<strong>fileTrack</strong>
+					 -- a track representing an audio file (MP3, AIFF, etc.)
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>fileTracks</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_track__iTunes_Suite">track</a></em></li>
+							</ul>
+						</li>
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>location</strong>
+									
+									<em>alias</em>
+									 -- the location of the file represented by this track
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_folderPlaylist__iTunes_Suite"></a>
+					<strong>folderPlaylist</strong>
+					 -- a folder that contains other playlists
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>folderPlaylists</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_userPlaylist__iTunes_Suite">userPlaylist</a></em></li>
+							</ul>
+						</li>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_item__iTunes_Suite"></a>
+					<strong>item</strong>
+					 -- an item
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>items</li>
+							</ul>
+						</li>
+						
+						<li>Inherited by:
+							<ul>
+								<li><em><a href="#class_artwork__iTunes_Suite">artwork</a></em></li>
+<li><em><a href="#class_encoder__iTunes_Suite">encoder</a></em></li>
+<li><em><a href="#class_EQPreset__iTunes_Suite">EQPreset</a></em></li>
+<li><em><a href="#class_playlist__iTunes_Suite">playlist</a></em></li>
+<li><em><a href="#class_source__iTunes_Suite">source</a></em></li>
+<li><em><a href="#class_track__iTunes_Suite">track</a></em></li>
+<li><em><a href="#class_visual__iTunes_Suite">visual</a></em></li>
+<li><em><a href="#class_window__iTunes_Suite">window</a></em></li>
+							</ul>
+						</li>
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>container</strong>
+									(r/o)
+									<em>reference</em>
+									 -- the container of the item
+								</li>
+<li>
+									<strong>id_</strong>
+									(r/o)
+									<em>integer</em>
+									 -- the id of the item
+								</li>
+<li>
+									<strong>index</strong>
+									(r/o)
+									<em>integer</em>
+									 -- The index of the item in internal application order.
+								</li>
+<li>
+									<strong>name</strong>
+									
+									<em>unicodeText</em>
+									 -- the name of the item
+								</li>
+<li>
+									<strong>persistentID</strong>
+									(r/o)
+									<em>string</em>
+									 -- the id of the item as a hexidecimal string. This id does not change over time.
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_libraryPlaylist__iTunes_Suite"></a>
+					<strong>libraryPlaylist</strong>
+					 -- the master music library playlist
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>libraryPlaylists</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_playlist__iTunes_Suite">playlist</a></em></li>
+							</ul>
+						</li>
+						
+						
+						<li>Elements:
+							<ul>
+								<li>
+									<strong><a href="#class_fileTrack__iTunes_Suite">fileTracks</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_URLTrack__iTunes_Suite">URLTracks</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_sharedTrack__iTunes_Suite">sharedTracks</a></strong> -- by
+									<em>index, name, range, relative, test</em>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="class_playlist__iTunes_Suite"></a>
+					<strong>playlist</strong>
+					 -- a list of songs/streams
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>playlists</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_item__iTunes_Suite">item</a></em></li>
+							</ul>
+						</li>
+						<li>Inherited by:
+							<ul>
+								<li><em><a href="#class_audioCDPlaylist__iTunes_Suite">audioCDPlaylist</a></em></li>
+<li><em><a href="#class_devicePlaylist__iTunes_Suite">devicePlaylist</a></em></li>
+<li><em><a href="#class_libraryPlaylist__iTunes_Suite">libraryPlaylist</a></em></li>
+<li><em><a href="#class_radioTunerPlaylist__iTunes_Suite">radioTunerPlaylist</a></em></li>
+<li><em><a href="#class_userPlaylist__iTunes_Suite">userPlaylist</a></em></li>
+							</ul>
+						</li>
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>duration</strong>
+									(r/o)
+									<em>integer</em>
+									 -- the total length of all songs (in seconds)
+								</li>
+<li>
+									<strong>name</strong>
+									
+									<em>unicodeText</em>
+									 -- the name of the playlist
+								</li>
+<li>
+									<strong>parent</strong>
+									(r/o)
+									<em><a href="#class_playlist__iTunes_Suite">playlist</a></em>
+									 -- folder which contains this playlist (if any)
+								</li>
+<li>
+									<strong>shuffle</strong>
+									
+									<em>boolean</em>
+									 -- play the songs in this playlist in random order?
+								</li>
+<li>
+									<strong>size</strong>
+									(r/o)
+									<em>doubleInteger</em>
+									 -- the total size of all songs (in bytes)
+								</li>
+<li>
+									<strong>songRepeat</strong>
+									
+									<em>off / one / all</em>
+									 -- playback repeat mode
+								</li>
+<li>
+									<strong>specialKind</strong>
+									(r/o)
+									<em>none / Books / folder / Genius / iTunesU / Library / Movies / Music / PartyShuffle / Podcasts / PurchasedMusic / TVShows</em>
+									 -- special playlist kind
+								</li>
+<li>
+									<strong>time</strong>
+									(r/o)
+									<em>unicodeText</em>
+									 -- the length of all songs in MM:SS format
+								</li>
+<li>
+									<strong>visible</strong>
+									(r/o)
+									<em>boolean</em>
+									 -- is this playlist visible in the Source list?
+								</li>
+							</ul>
+						</li>
+						<li>Elements:
+							<ul>
+								<li>
+									<strong><a href="#class_track__iTunes_Suite">tracks</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="class_playlistWindow__iTunes_Suite"></a>
+					<strong>playlistWindow</strong>
+					 -- a sub-window showing a single playlist
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>playlistWindows</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_window__iTunes_Suite">window</a></em></li>
+							</ul>
+						</li>
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>selection</strong>
+									(r/o)
+									<em>reference</em>
+									 -- the selected songs
+								</li>
+<li>
+									<strong>view</strong>
+									(r/o)
+									<em><a href="#class_playlist__iTunes_Suite">playlist</a></em>
+									 -- the playlist displayed in the window
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_radioTunerPlaylist__iTunes_Suite"></a>
+					<strong>radioTunerPlaylist</strong>
+					 -- the radio tuner playlist
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>radioTunerPlaylists</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_playlist__iTunes_Suite">playlist</a></em></li>
+							</ul>
+						</li>
+						
+						
+						<li>Elements:
+							<ul>
+								<li>
+									<strong><a href="#class_URLTrack__iTunes_Suite">URLTracks</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="class_sharedTrack__iTunes_Suite"></a>
+					<strong>sharedTrack</strong>
+					 -- a track residing in a shared library
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>sharedTracks</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_track__iTunes_Suite">track</a></em></li>
+							</ul>
+						</li>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_source__iTunes_Suite"></a>
+					<strong>source</strong>
+					 -- a music source (music library, CD, device, etc.)
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>sources</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_item__iTunes_Suite">item</a></em></li>
+							</ul>
+						</li>
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>capacity</strong>
+									(r/o)
+									<em>doubleInteger</em>
+									 -- the total size of the source if it has a fixed size
+								</li>
+<li>
+									<strong>freeSpace</strong>
+									(r/o)
+									<em>doubleInteger</em>
+									 -- the free space on the source if it has a fixed size
+								</li>
+<li>
+									<strong>kind</strong>
+									(r/o)
+									<em>library / iPod / audioCD / MP3CD / device / radioTuner / sharedLibrary / unknown</em>
+									
+								</li>
+							</ul>
+						</li>
+						<li>Elements:
+							<ul>
+								<li>
+									<strong><a href="#class_audioCDPlaylist__iTunes_Suite">audioCDPlaylists</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_devicePlaylist__iTunes_Suite">devicePlaylists</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_libraryPlaylist__iTunes_Suite">libraryPlaylists</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_playlist__iTunes_Suite">playlists</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_radioTunerPlaylist__iTunes_Suite">radioTunerPlaylists</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_userPlaylist__iTunes_Suite">userPlaylists</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="class_track__iTunes_Suite"></a>
+					<strong>track</strong>
+					 -- playable audio source
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>tracks</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_item__iTunes_Suite">item</a></em></li>
+							</ul>
+						</li>
+						<li>Inherited by:
+							<ul>
+								<li><em><a href="#class_audioCDTrack__iTunes_Suite">audioCDTrack</a></em></li>
+<li><em><a href="#class_deviceTrack__iTunes_Suite">deviceTrack</a></em></li>
+<li><em><a href="#class_fileTrack__iTunes_Suite">fileTrack</a></em></li>
+<li><em><a href="#class_sharedTrack__iTunes_Suite">sharedTrack</a></em></li>
+<li><em><a href="#class_URLTrack__iTunes_Suite">URLTrack</a></em></li>
+							</ul>
+						</li>
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>album</strong>
+									
+									<em>unicodeText</em>
+									 -- the album name of the track
+								</li>
+<li>
+									<strong>albumArtist</strong>
+									
+									<em>unicodeText</em>
+									 -- the album artist of the track
+								</li>
+<li>
+									<strong>albumRating</strong>
+									
+									<em>integer</em>
+									 -- the rating of the album for this track (0 to 100)
+								</li>
+<li>
+									<strong>albumRatingKind</strong>
+									(r/o)
+									<em>user / computed</em>
+									 -- the rating kind of the album rating for this track
+								</li>
+<li>
+									<strong>artist</strong>
+									
+									<em>unicodeText</em>
+									 -- the artist/source of the track
+								</li>
+<li>
+									<strong>bitRate</strong>
+									(r/o)
+									<em>integer</em>
+									 -- the bit rate of the track (in kbps)
+								</li>
+<li>
+									<strong>bookmark</strong>
+									
+									<em>shortFloat</em>
+									 -- the bookmark time of the track in seconds
+								</li>
+<li>
+									<strong>bookmarkable</strong>
+									
+									<em>boolean</em>
+									 -- is the playback position for this track remembered?
+								</li>
+<li>
+									<strong>bpm</strong>
+									
+									<em>integer</em>
+									 -- the tempo of this track in beats per minute
+								</li>
+<li>
+									<strong>category</strong>
+									
+									<em>unicodeText</em>
+									 -- the category of the track
+								</li>
+<li>
+									<strong>comment</strong>
+									
+									<em>unicodeText</em>
+									 -- freeform notes about the track
+								</li>
+<li>
+									<strong>compilation</strong>
+									
+									<em>boolean</em>
+									 -- is this track from a compilation album?
+								</li>
+<li>
+									<strong>composer</strong>
+									
+									<em>unicodeText</em>
+									 -- the composer of the track
+								</li>
+<li>
+									<strong>databaseID</strong>
+									(r/o)
+									<em>integer</em>
+									 -- the common, unique ID for this track. If two tracks in different playlists have the same database ID, they are sharing the same data.
+								</li>
+<li>
+									<strong>dateAdded</strong>
+									(r/o)
+									<em>date</em>
+									 -- the date the track was added to the playlist
+								</li>
+<li>
+									<strong>description_</strong>
+									
+									<em>unicodeText</em>
+									 -- the description of the track
+								</li>
+<li>
+									<strong>discCount</strong>
+									
+									<em>integer</em>
+									 -- the total number of discs in the source album
+								</li>
+<li>
+									<strong>discNumber</strong>
+									
+									<em>integer</em>
+									 -- the index of the disc containing this track on the source album
+								</li>
+<li>
+									<strong>duration</strong>
+									(r/o)
+									<em>shortFloat</em>
+									 -- the length of the track in seconds
+								</li>
+<li>
+									<strong>enabled</strong>
+									
+									<em>boolean</em>
+									 -- is this track checked for playback?
+								</li>
+<li>
+									<strong>episodeID</strong>
+									
+									<em>unicodeText</em>
+									 -- the episode ID of the track
+								</li>
+<li>
+									<strong>episodeNumber</strong>
+									
+									<em>integer</em>
+									 -- the episode number of the track
+								</li>
+<li>
+									<strong>EQ</strong>
+									
+									<em>unicodeText</em>
+									 -- the name of the EQ preset of the track
+								</li>
+<li>
+									<strong>finish</strong>
+									
+									<em>shortFloat</em>
+									 -- the stop time of the track in seconds
+								</li>
+<li>
+									<strong>gapless</strong>
+									
+									<em>boolean</em>
+									 -- is this track from a gapless album?
+								</li>
+<li>
+									<strong>genre</strong>
+									
+									<em>unicodeText</em>
+									 -- the music/audio genre (category) of the track
+								</li>
+<li>
+									<strong>grouping</strong>
+									
+									<em>unicodeText</em>
+									 -- the grouping (piece) of the track. Generally used to denote movements within a classical work.
+								</li>
+<li>
+									<strong>kind</strong>
+									(r/o)
+									<em>unicodeText</em>
+									 -- a text description of the track
+								</li>
+<li>
+									<strong>longDescription</strong>
+									
+									<em>unicodeText</em>
+									
+								</li>
+<li>
+									<strong>lyrics</strong>
+									
+									<em>unicodeText</em>
+									 -- the lyrics of the track
+								</li>
+<li>
+									<strong>modificationDate</strong>
+									(r/o)
+									<em>date</em>
+									 -- the modification date of the content of this track
+								</li>
+<li>
+									<strong>playedCount</strong>
+									
+									<em>integer</em>
+									 -- number of times this track has been played
+								</li>
+<li>
+									<strong>playedDate</strong>
+									
+									<em>date</em>
+									 -- the date and time this track was last played
+								</li>
+<li>
+									<strong>podcast</strong>
+									(r/o)
+									<em>boolean</em>
+									 -- is this track a podcast episode?
+								</li>
+<li>
+									<strong>rating</strong>
+									
+									<em>integer</em>
+									 -- the rating of this track (0 to 100)
+								</li>
+<li>
+									<strong>ratingKind</strong>
+									(r/o)
+									<em>user / computed</em>
+									 -- the rating kind of this track
+								</li>
+<li>
+									<strong>releaseDate</strong>
+									(r/o)
+									<em>date</em>
+									 -- the release date of this track
+								</li>
+<li>
+									<strong>sampleRate</strong>
+									(r/o)
+									<em>integer</em>
+									 -- the sample rate of the track (in Hz)
+								</li>
+<li>
+									<strong>seasonNumber</strong>
+									
+									<em>integer</em>
+									 -- the season number of the track
+								</li>
+<li>
+									<strong>shufflable</strong>
+									
+									<em>boolean</em>
+									 -- is this track included when shuffling?
+								</li>
+<li>
+									<strong>skippedCount</strong>
+									
+									<em>integer</em>
+									 -- number of times this track has been skipped
+								</li>
+<li>
+									<strong>skippedDate</strong>
+									
+									<em>date</em>
+									 -- the date and time this track was last skipped
+								</li>
+<li>
+									<strong>show</strong>
+									
+									<em>unicodeText</em>
+									 -- the show name of the track
+								</li>
+<li>
+									<strong>sortAlbum</strong>
+									
+									<em>unicodeText</em>
+									 -- override string to use for the track when sorting by album
+								</li>
+<li>
+									<strong>sortArtist</strong>
+									
+									<em>unicodeText</em>
+									 -- override string to use for the track when sorting by artist
+								</li>
+<li>
+									<strong>sortAlbumArtist</strong>
+									
+									<em>unicodeText</em>
+									 -- override string to use for the track when sorting by album artist
+								</li>
+<li>
+									<strong>sortName</strong>
+									
+									<em>unicodeText</em>
+									 -- override string to use for the track when sorting by name
+								</li>
+<li>
+									<strong>sortComposer</strong>
+									
+									<em>unicodeText</em>
+									 -- override string to use for the track when sorting by composer
+								</li>
+<li>
+									<strong>sortShow</strong>
+									
+									<em>unicodeText</em>
+									 -- override string to use for the track when sorting by show name
+								</li>
+<li>
+									<strong>size</strong>
+									(r/o)
+									<em>integer</em>
+									 -- the size of the track (in bytes)
+								</li>
+<li>
+									<strong>start</strong>
+									
+									<em>shortFloat</em>
+									 -- the start time of the track in seconds
+								</li>
+<li>
+									<strong>time</strong>
+									(r/o)
+									<em>unicodeText</em>
+									 -- the length of the track in MM:SS format
+								</li>
+<li>
+									<strong>trackCount</strong>
+									
+									<em>integer</em>
+									 -- the total number of tracks on the source album
+								</li>
+<li>
+									<strong>trackNumber</strong>
+									
+									<em>integer</em>
+									 -- the index of the track on the source album
+								</li>
+<li>
+									<strong>unplayed</strong>
+									
+									<em>boolean</em>
+									 -- is this track unplayed?
+								</li>
+<li>
+									<strong>videoKind</strong>
+									
+									<em>none / movie / musicVideo / TVShow</em>
+									 -- kind of video track
+								</li>
+<li>
+									<strong>volumeAdjustment</strong>
+									
+									<em>integer</em>
+									 -- relative volume adjustment of the track (-100% to 100%)
+								</li>
+<li>
+									<strong>year</strong>
+									
+									<em>integer</em>
+									 -- the year the track was recorded/released
+								</li>
+							</ul>
+						</li>
+						<li>Elements:
+							<ul>
+								<li>
+									<strong><a href="#class_artwork__iTunes_Suite">artworks</a></strong> -- by
+									<em>index</em>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="class_URLTrack__iTunes_Suite"></a>
+					<strong>URLTrack</strong>
+					 -- a track representing a network stream
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>URLTracks</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_track__iTunes_Suite">track</a></em></li>
+							</ul>
+						</li>
+						
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>address</strong>
+									
+									<em>unicodeText</em>
+									 -- the URL for this track
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_userPlaylist__iTunes_Suite"></a>
+					<strong>userPlaylist</strong>
+					 -- custom playlists created by the user
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>userPlaylists</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_playlist__iTunes_Suite">playlist</a></em></li>
+							</ul>
+						</li>
+						<li>Inherited by:
+							<ul>
+								<li><em><a href="#class_folderPlaylist__iTunes_Suite">folderPlaylist</a></em></li>
+							</ul>
+						</li>
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>shared</strong>
+									
+									<em>boolean</em>
+									 -- is this playlist shared?
+								</li>
+<li>
+									<strong>smart</strong>
+									(r/o)
+									<em>boolean</em>
+									 -- is this a Smart Playlist?
+								</li>
+							</ul>
+						</li>
+						<li>Elements:
+							<ul>
+								<li>
+									<strong><a href="#class_fileTrack__iTunes_Suite">fileTracks</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_URLTrack__iTunes_Suite">URLTracks</a></strong> -- by
+									<em>index, name, id</em>
+								</li>
+<li>
+									<strong><a href="#class_sharedTrack__iTunes_Suite">sharedTracks</a></strong> -- by
+									<em>index, name, range, relative, test</em>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+<li>
+					<a name="class_visual__iTunes_Suite"></a>
+					<strong>visual</strong>
+					 -- a visual plug-in
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>visuals</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_item__iTunes_Suite">item</a></em></li>
+							</ul>
+						</li>
+						
+						
+						
+					</ul>
+				</li>
+<li>
+					<a name="class_window__iTunes_Suite"></a>
+					<strong>window</strong>
+					 -- any window
+					<ul>
+						<li>Plural name:
+							<ul>
+								<li>windows</li>
+							</ul>
+						</li>
+						<li>Inherits from:
+							<ul>
+								<li><em><a href="#class_item__iTunes_Suite">item</a></em></li>
+							</ul>
+						</li>
+						<li>Inherited by:
+							<ul>
+								<li><em><a href="#class_browserWindow__iTunes_Suite">browserWindow</a></em></li>
+<li><em><a href="#class_EQWindow__iTunes_Suite">EQWindow</a></em></li>
+<li><em><a href="#class_playlistWindow__iTunes_Suite">playlistWindow</a></em></li>
+							</ul>
+						</li>
+						<li>Properties:
+							<ul>
+								<li>
+									<strong>bounds</strong>
+									
+									<em>boundingRectangle</em>
+									 -- the boundary rectangle for the window
+								</li>
+<li>
+									<strong>closeable</strong>
+									(r/o)
+									<em>boolean</em>
+									 -- does the window have a close box?
+								</li>
+<li>
+									<strong>collapseable</strong>
+									(r/o)
+									<em>boolean</em>
+									 -- does the window have a collapse (windowshade) box?
+								</li>
+<li>
+									<strong>collapsed</strong>
+									
+									<em>boolean</em>
+									 -- is the window collapsed?
+								</li>
+<li>
+									<strong>position</strong>
+									
+									<em>point</em>
+									 -- the upper left position of the window
+								</li>
+<li>
+									<strong>resizable</strong>
+									(r/o)
+									<em>boolean</em>
+									 -- is the window resizable?
+								</li>
+<li>
+									<strong>visible</strong>
+									
+									<em>boolean</em>
+									 -- is the window visible?
+								</li>
+<li>
+									<strong>zoomable</strong>
+									(r/o)
+									<em>boolean</em>
+									 -- is the window zoomable?
+								</li>
+<li>
+									<strong>zoomed</strong>
+									
+									<em>boolean</em>
+									 -- is the window zoomed?
+								</li>
+							</ul>
+						</li>
+						
+					</ul>
+				</li>
+			</ul>
+		
+		
+	
+
+		<a name="suite_Internet_suite" id="suite_Internet_suite"></a>
+		<h2>Internet suite</h2>
+
+		<p>Standard terms for Internet scripting</p>
+		
+		
+		
+			<h3>Commands</h3>
+			<ul>
+				<li>
+					<a name="command_openLocation__Internet_suite"></a>
+					<strong>openLocation</strong>
+					 -- Opens a Music Store or audio stream URL
+					<ul>
+						<li>
+							[<em>string</em>]
+							 -- the URL to open
+						</li>
+						
+						
+					</ul>
+				</li>
+			</ul>
+		
+		
+		
+		
+		
+	
+</td>
+
+<td id="sidebar" valign="top">
+<div class="box">
+	<h2>Suites</h2>
+	<ul>
+		<li><a href="#suite_Standard_Suite">Standard Suite</a></li>
+<li><a href="#suite_iTunes_Suite">iTunes Suite</a></li>
+<li><a href="#suite_Internet_suite">Internet suite</a></li>
+	</ul>
+	<h2>Commands</h2>
+	<ul>
+		<li><a href="#command_add__iTunes_Suite">add</a></li>
+<li><a href="#command_backTrack__iTunes_Suite">backTrack</a></li>
+<li><a href="#command_close__Standard_Suite">close</a></li>
+<li><a href="#command_convert__iTunes_Suite">convert</a></li>
+<li><a href="#command_count__Standard_Suite">count</a></li>
+<li><a href="#command_delete__Standard_Suite">delete</a></li>
+<li><a href="#command_download__iTunes_Suite">download</a></li>
+<li><a href="#command_duplicate__Standard_Suite">duplicate</a></li>
+<li><a href="#command_eject__iTunes_Suite">eject</a></li>
+<li><a href="#command_exists__Standard_Suite">exists</a></li>
+<li><a href="#command_fastForward__iTunes_Suite">fastForward</a></li>
+<li><a href="#command_make__Standard_Suite">make</a></li>
+<li><a href="#command_move__Standard_Suite">move</a></li>
+<li><a href="#command_nextTrack__iTunes_Suite">nextTrack</a></li>
+<li><a href="#command_open__Standard_Suite">open</a></li>
+<li><a href="#command_openLocation__Internet_suite">openLocation</a></li>
+<li><a href="#command_pause__iTunes_Suite">pause</a></li>
+<li><a href="#command_play__iTunes_Suite">play</a></li>
+<li><a href="#command_playpause__iTunes_Suite">playpause</a></li>
+<li><a href="#command_previousTrack__iTunes_Suite">previousTrack</a></li>
+<li><a href="#command_print__Standard_Suite">print</a></li>
+<li><a href="#command_quit__Standard_Suite">quit</a></li>
+<li><a href="#command_refresh__iTunes_Suite">refresh</a></li>
+<li><a href="#command_resume__iTunes_Suite">resume</a></li>
+<li><a href="#command_reveal__iTunes_Suite">reveal</a></li>
+<li><a href="#command_rewind__iTunes_Suite">rewind</a></li>
+<li><a href="#command_run__Standard_Suite">run</a></li>
+<li><a href="#command_search__iTunes_Suite">search</a></li>
+<li><a href="#command_set__Standard_Suite">set</a></li>
+<li><a href="#command_stop__iTunes_Suite">stop</a></li>
+<li><a href="#command_subscribe__iTunes_Suite">subscribe</a></li>
+<li><a href="#command_update__iTunes_Suite">update</a></li>
+<li><a href="#command_updateAllPodcasts__iTunes_Suite">updateAllPodcasts</a></li>
+<li><a href="#command_updatePodcast__iTunes_Suite">updatePodcast</a></li>
+	</ul>
+	<h2>Classes</h2>
+	<ul>
+		<li><a href="#class_application__iTunes_Suite">application</a></li>
+<li><a href="#class_artwork__iTunes_Suite">artwork</a></li>
+<li><a href="#class_audioCDPlaylist__iTunes_Suite">audioCDPlaylist</a></li>
+<li><a href="#class_audioCDTrack__iTunes_Suite">audioCDTrack</a></li>
+<li><a href="#class_browserWindow__iTunes_Suite">browserWindow</a></li>
+<li><a href="#class_devicePlaylist__iTunes_Suite">devicePlaylist</a></li>
+<li><a href="#class_deviceTrack__iTunes_Suite">deviceTrack</a></li>
+<li><a href="#class_encoder__iTunes_Suite">encoder</a></li>
+<li><a href="#class_EQPreset__iTunes_Suite">EQPreset</a></li>
+<li><a href="#class_EQWindow__iTunes_Suite">EQWindow</a></li>
+<li><a href="#class_fileTrack__iTunes_Suite">fileTrack</a></li>
+<li><a href="#class_folderPlaylist__iTunes_Suite">folderPlaylist</a></li>
+<li><a href="#class_item__iTunes_Suite">item</a></li>
+<li><a href="#class_libraryPlaylist__iTunes_Suite">libraryPlaylist</a></li>
+<li><a href="#class_playlist__iTunes_Suite">playlist</a></li>
+<li><a href="#class_playlistWindow__iTunes_Suite">playlistWindow</a></li>
+<li><a href="#class_printSettings__Standard_Suite">printSettings</a></li>
+<li><a href="#class_radioTunerPlaylist__iTunes_Suite">radioTunerPlaylist</a></li>
+<li><a href="#class_sharedTrack__iTunes_Suite">sharedTrack</a></li>
+<li><a href="#class_source__iTunes_Suite">source</a></li>
+<li><a href="#class_track__iTunes_Suite">track</a></li>
+<li><a href="#class_URLTrack__iTunes_Suite">URLTrack</a></li>
+<li><a href="#class_userPlaylist__iTunes_Suite">userPlaylist</a></li>
+<li><a href="#class_visual__iTunes_Suite">visual</a></li>
+<li><a href="#class_window__iTunes_Suite">window</a></li>
+	</ul>
+</div>
+</td>
+</tr>
+</table>
+</body></html>

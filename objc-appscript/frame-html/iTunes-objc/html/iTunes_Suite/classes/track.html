@@ -1,0 +1,459 @@
+<!DOCTYPE html 
+	PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>track</title>
+	<style type="text/css" media="all"><!--@import url(../../main.css);--></style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<base target="main" />
+</head>
+<body>
+
+<h1><sup>Class</sup> track</h1>
+
+<div id="view"><a href="../../FULL/classes/track.html">expand</a></div>
+
+
+<div id="content">
+
+<h2>Description</h2>
+
+<p>playable audio source</p>
+
+<ul class="desc">
+	<li>Plural name:
+		<ul>
+			<li><strong>tracks</strong></li>
+		</ul>
+	</li>
+	<li>Defined in:
+		<ul>
+			<li><em><a href="../../index.html#suite_iTunes_Suite">iTunes Suite</a></em></li>
+		</ul>
+	</li>
+	
+	<li>Inherits from:
+		<ul>
+			<li>
+				
+					<strong><a href="../../iTunes_Suite/classes/item.html">item</a></strong>
+					(<em><a href="../../index.html#suite_iTunes_Suite">iTunes Suite</a></em>)
+				
+				
+			</li>
+		</ul>
+	</li>
+</ul>
+
+
+	<h2>Properties</h2>
+	<ul>
+		<li>
+			<strong>album</strong>
+			
+			<em>unicodeText</em>
+			 -- the album name of the track
+		</li>
+<li>
+			<strong>albumArtist</strong>
+			
+			<em>unicodeText</em>
+			 -- the album artist of the track
+		</li>
+<li>
+			<strong>albumRating</strong>
+			
+			<em>integer</em>
+			 -- the rating of the album for this track (0 to 100)
+		</li>
+<li>
+			<strong>albumRatingKind</strong>
+			(r/o)
+			<em>user / computed</em>
+			 -- the rating kind of the album rating for this track
+		</li>
+<li>
+			<strong>artist</strong>
+			
+			<em>unicodeText</em>
+			 -- the artist/source of the track
+		</li>
+<li>
+			<strong>bitRate</strong>
+			(r/o)
+			<em>integer</em>
+			 -- the bit rate of the track (in kbps)
+		</li>
+<li>
+			<strong>bookmark</strong>
+			
+			<em>shortFloat</em>
+			 -- the bookmark time of the track in seconds
+		</li>
+<li>
+			<strong>bookmarkable</strong>
+			
+			<em>boolean</em>
+			 -- is the playback position for this track remembered?
+		</li>
+<li>
+			<strong>bpm</strong>
+			
+			<em>integer</em>
+			 -- the tempo of this track in beats per minute
+		</li>
+<li>
+			<strong>category</strong>
+			
+			<em>unicodeText</em>
+			 -- the category of the track
+		</li>
+<li>
+			<strong>comment</strong>
+			
+			<em>unicodeText</em>
+			 -- freeform notes about the track
+		</li>
+<li>
+			<strong>compilation</strong>
+			
+			<em>boolean</em>
+			 -- is this track from a compilation album?
+		</li>
+<li>
+			<strong>composer</strong>
+			
+			<em>unicodeText</em>
+			 -- the composer of the track
+		</li>
+<li>
+			<strong>databaseID</strong>
+			(r/o)
+			<em>integer</em>
+			 -- the common, unique ID for this track. If two tracks in different playlists have the same database ID, they are sharing the same data.
+		</li>
+<li>
+			<strong>dateAdded</strong>
+			(r/o)
+			<em>date</em>
+			 -- the date the track was added to the playlist
+		</li>
+<li>
+			<strong>description_</strong>
+			
+			<em>unicodeText</em>
+			 -- the description of the track
+		</li>
+<li>
+			<strong>discCount</strong>
+			
+			<em>integer</em>
+			 -- the total number of discs in the source album
+		</li>
+<li>
+			<strong>discNumber</strong>
+			
+			<em>integer</em>
+			 -- the index of the disc containing this track on the source album
+		</li>
+<li>
+			<strong>duration</strong>
+			(r/o)
+			<em>shortFloat</em>
+			 -- the length of the track in seconds
+		</li>
+<li>
+			<strong>enabled</strong>
+			
+			<em>boolean</em>
+			 -- is this track checked for playback?
+		</li>
+<li>
+			<strong>episodeID</strong>
+			
+			<em>unicodeText</em>
+			 -- the episode ID of the track
+		</li>
+<li>
+			<strong>episodeNumber</strong>
+			
+			<em>integer</em>
+			 -- the episode number of the track
+		</li>
+<li>
+			<strong>EQ</strong>
+			
+			<em>unicodeText</em>
+			 -- the name of the EQ preset of the track
+		</li>
+<li>
+			<strong>finish</strong>
+			
+			<em>shortFloat</em>
+			 -- the stop time of the track in seconds
+		</li>
+<li>
+			<strong>gapless</strong>
+			
+			<em>boolean</em>
+			 -- is this track from a gapless album?
+		</li>
+<li>
+			<strong>genre</strong>
+			
+			<em>unicodeText</em>
+			 -- the music/audio genre (category) of the track
+		</li>
+<li>
+			<strong>grouping</strong>
+			
+			<em>unicodeText</em>
+			 -- the grouping (piece) of the track. Generally used to denote movements within a classical work.
+		</li>
+<li>
+			<strong>kind</strong>
+			(r/o)
+			<em>unicodeText</em>
+			 -- a text description of the track
+		</li>
+<li>
+			<strong>longDescription</strong>
+			
+			<em>unicodeText</em>
+			
+		</li>
+<li>
+			<strong>lyrics</strong>
+			
+			<em>unicodeText</em>
+			 -- the lyrics of the track
+		</li>
+<li>
+			<strong>modificationDate</strong>
+			(r/o)
+			<em>date</em>
+			 -- the modification date of the content of this track
+		</li>
+<li>
+			<strong>playedCount</strong>
+			
+			<em>integer</em>
+			 -- number of times this track has been played
+		</li>
+<li>
+			<strong>playedDate</strong>
+			
+			<em>date</em>
+			 -- the date and time this track was last played
+		</li>
+<li>
+			<strong>podcast</strong>
+			(r/o)
+			<em>boolean</em>
+			 -- is this track a podcast episode?
+		</li>
+<li>
+			<strong>rating</strong>
+			
+			<em>integer</em>
+			 -- the rating of this track (0 to 100)
+		</li>
+<li>
+			<strong>ratingKind</strong>
+			(r/o)
+			<em>user / computed</em>
+			 -- the rating kind of this track
+		</li>
+<li>
+			<strong>releaseDate</strong>
+			(r/o)
+			<em>date</em>
+			 -- the release date of this track
+		</li>
+<li>
+			<strong>sampleRate</strong>
+			(r/o)
+			<em>integer</em>
+			 -- the sample rate of the track (in Hz)
+		</li>
+<li>
+			<strong>seasonNumber</strong>
+			
+			<em>integer</em>
+			 -- the season number of the track
+		</li>
+<li>
+			<strong>shufflable</strong>
+			
+			<em>boolean</em>
+			 -- is this track included when shuffling?
+		</li>
+<li>
+			<strong>skippedCount</strong>
+			
+			<em>integer</em>
+			 -- number of times this track has been skipped
+		</li>
+<li>
+			<strong>skippedDate</strong>
+			
+			<em>date</em>
+			 -- the date and time this track was last skipped
+		</li>
+<li>
+			<strong>show</strong>
+			
+			<em>unicodeText</em>
+			 -- the show name of the track
+		</li>
+<li>
+			<strong>sortAlbum</strong>
+			
+			<em>unicodeText</em>
+			 -- override string to use for the track when sorting by album
+		</li>
+<li>
+			<strong>sortArtist</strong>
+			
+			<em>unicodeText</em>
+			 -- override string to use for the track when sorting by artist
+		</li>
+<li>
+			<strong>sortAlbumArtist</strong>
+			
+			<em>unicodeText</em>
+			 -- override string to use for the track when sorting by album artist
+		</li>
+<li>
+			<strong>sortName</strong>
+			
+			<em>unicodeText</em>
+			 -- override string to use for the track when sorting by name
+		</li>
+<li>
+			<strong>sortComposer</strong>
+			
+			<em>unicodeText</em>
+			 -- override string to use for the track when sorting by composer
+		</li>
+<li>
+			<strong>sortShow</strong>
+			
+			<em>unicodeText</em>
+			 -- override string to use for the track when sorting by show name
+		</li>
+<li>
+			<strong>size</strong>
+			(r/o)
+			<em>integer</em>
+			 -- the size of the track (in bytes)
+		</li>
+<li>
+			<strong>start</strong>
+			
+			<em>shortFloat</em>
+			 -- the start time of the track in seconds
+		</li>
+<li>
+			<strong>time</strong>
+			(r/o)
+			<em>unicodeText</em>
+			 -- the length of the track in MM:SS format
+		</li>
+<li>
+			<strong>trackCount</strong>
+			
+			<em>integer</em>
+			 -- the total number of tracks on the source album
+		</li>
+<li>
+			<strong>trackNumber</strong>
+			
+			<em>integer</em>
+			 -- the index of the track on the source album
+		</li>
+<li>
+			<strong>unplayed</strong>
+			
+			<em>boolean</em>
+			 -- is this track unplayed?
+		</li>
+<li>
+			<strong>videoKind</strong>
+			
+			<em>none / movie / musicVideo / TVShow</em>
+			 -- kind of video track
+		</li>
+<li>
+			<strong>volumeAdjustment</strong>
+			
+			<em>integer</em>
+			 -- relative volume adjustment of the track (-100% to 100%)
+		</li>
+<li>
+			<strong>year</strong>
+			
+			<em>integer</em>
+			 -- the year the track was recorded/released
+		</li>
+	</ul>
+
+
+
+	<h2>Elements</h2>
+	<ul>
+		<li>
+			<strong><a href="../../iTunes_Suite/classes/artwork.html">artworks</a></strong> -- by
+			<em>index</em>
+		</li>
+	</ul>
+
+
+
+	<h2>Notes</h2>
+	
+	<ul class="desc">
+		<li>Inherited by:
+			<ul>
+				<li>
+					<strong><a href="../../iTunes_Suite/classes/audioCDTrack.html">audioCDTrack</a></strong>
+					(<em><a href="../../index.html#suite_iTunes_Suite">iTunes Suite</a></em>)
+				</li>
+<li>
+					<strong><a href="../../iTunes_Suite/classes/deviceTrack.html">deviceTrack</a></strong>
+					(<em><a href="../../index.html#suite_iTunes_Suite">iTunes Suite</a></em>)
+				</li>
+<li>
+					<strong><a href="../../iTunes_Suite/classes/fileTrack.html">fileTrack</a></strong>
+					(<em><a href="../../index.html#suite_iTunes_Suite">iTunes Suite</a></em>)
+				</li>
+<li>
+					<strong><a href="../../iTunes_Suite/classes/sharedTrack.html">sharedTrack</a></strong>
+					(<em><a href="../../index.html#suite_iTunes_Suite">iTunes Suite</a></em>)
+				</li>
+<li>
+					<strong><a href="../../iTunes_Suite/classes/URLTrack.html">URLTrack</a></strong>
+					(<em><a href="../../index.html#suite_iTunes_Suite">iTunes Suite</a></em>)
+				</li>
+			</ul>
+		</li>
+<li>Contained by:
+			<ul>
+				<li>
+					<strong><a href="../../iTunes_Suite/classes/application.html">application</a></strong>
+					(<em><a href="../../index.html#suite_iTunes_Suite">iTunes Suite</a></em>)
+				</li>
+<li>
+					<strong><a href="../../iTunes_Suite/classes/playlist.html">playlist</a></strong>
+					(<em><a href="../../index.html#suite_iTunes_Suite">iTunes Suite</a></em>)
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+
+
+</body>
+</html>
