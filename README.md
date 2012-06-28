@@ -6,6 +6,11 @@ for iTunes for use with appscript. This allows the continued use of
 appscript with iTunes 10.6.3 (which has the same terminology as
 10.6.1, but appscript and ASDictionary can no longer retrieve it).
 
+If you're affected by the change in iTunes 10.6.3, please consider
+filing a bug at http://bugreport.apple.com (see the OpenRadar bug
+under links for an example), to increase the changes of Apple doing
+something about it.
+
 tunes.py
 ========
 
@@ -99,3 +104,4 @@ Links
  * http://appscript.sourceforge.net
  * http://www.leancrew.com/all-this/2012/06/the-first-nail-in-the-coffin-of-python-appscript/
  * http://www.apeth.com/rbappscript/04appobject.html
+ * http://openradar.appspot.com/radar?id=1788405
