@@ -18,7 +18,7 @@ Used for py-appscript, as follows:
 
     import appscript
     import tunes
-    itunes = appscript.app('iTunes', tunes)
+    itunes = appscript.app('iTunes', terms=tunes)
 
 tunes.rb
 ========
