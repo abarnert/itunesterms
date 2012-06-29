@@ -20,6 +20,9 @@ Used for py-appscript, as follows:
     import tunes
     itunes = appscript.app('iTunes', terms=tunes)
 
+Of course you can also use the other constructor forms (by bundle ID, 
+etc.); just add the "terms" keyword parameter to the end.
+
 tunes.rb
 ========
 
@@ -29,6 +32,8 @@ Used for rb-appscript, as follows:
     require `appscript`
     require `tunes`
     itunes = Appscript.app.by_name("iTunes", Tunes)
+    
+As with Python, you can use the other constructor forms as well.
 
 objc-appscript/glues/ITGlue
 ===========================
